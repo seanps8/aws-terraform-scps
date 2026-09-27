@@ -1,0 +1,20 @@
+{
+  "tags": {
+    "ManagedBy": {
+      "tag_key": {
+        "@@assign": "ManagedBy"
+      },
+      "tag_value": {
+        "@@assign": ["Terraform", "CI/CD", "Admin"]
+      }
+    },
+    "TeamName": {
+      "tag_key": {
+        "@@assign": "TeamName"
+      },
+      "tag_value": {
+        "@@assign": ["DevOps", "Security", "Platform"]
+      }
+    }
+  }
+}

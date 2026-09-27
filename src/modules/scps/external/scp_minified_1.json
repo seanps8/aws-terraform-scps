@@ -1,0 +1,115 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyEC2WithoutTeamName",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/TeamName": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyEC2WithoutManagedBy",
+      "Effect": "Deny",
+      "Action": "ec2:RunInstances",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/ManagedBy": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyLambdaWithoutTeamName",
+      "Effect": "Deny",
+      "Action": "lambda:CreateFunction",
+      "Resource": "arn:aws:lambda:*:*:function:*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/TeamName": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyLambdaWithoutManagedBy",
+      "Effect": "Deny",
+      "Action": "lambda:CreateFunction",
+      "Resource": "arn:aws:lambda:*:*:function:*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/ManagedBy": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyS3WithoutTeamName",
+      "Effect": "Deny",
+      "Action": "s3:CreateBucket",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/TeamName": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyS3WithoutManagedBy",
+      "Effect": "Deny",
+      "Action": "s3:CreateBucket",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/ManagedBy": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyRDSInstanceWithoutTeamName",
+      "Effect": "Deny",
+      "Action": "rds:CreateDBInstance",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/TeamName": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyRDSInstanceWithoutManagedBy",
+      "Effect": "Deny",
+      "Action": "rds:CreateDBInstance",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/ManagedBy": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyRDSClusterWithoutTeamName",
+      "Effect": "Deny",
+      "Action": "rds:CreateDBCluster",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/TeamName": "true"
+        }
+      }
+    },
+    {
+      "Sid": "DenyRDSClusterWithoutManagedBy",
+      "Effect": "Deny",
+      "Action": "rds:CreateDBCluster",
+      "Resource": "*",
+      "Condition": {
+        "Null": {
+          "aws:RequestTag/ManagedBy": "true"
+        }
+      }
+    }
+  ]
+}
